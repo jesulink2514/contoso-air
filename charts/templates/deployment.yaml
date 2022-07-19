@@ -37,7 +37,7 @@ spec:
               containerPort: {{ .Values.containerPort }}
               protocol: TCP
           env:
-            - name: MONGODB_CONN
+            - name: MONGO_LOCAL_CONN
               valueFrom:
                 secretKeyRef:
                   name: mongodb-conn
