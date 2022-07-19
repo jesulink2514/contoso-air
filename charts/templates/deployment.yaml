@@ -36,6 +36,12 @@ spec:
             - name: http
               containerPort: {{ .Values.containerPort }}
               protocol: TCP
+          env:
+            - name: MONGODB_CONN
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-conn
+                  key: data
           livenessProbe:
             httpGet:
               path: /
