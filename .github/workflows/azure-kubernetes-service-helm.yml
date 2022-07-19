@@ -63,12 +63,6 @@ jobs:
                 container-registry-url: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io
                 container-registry-username: ${{ steps.get-acr-creds.outputs.username }}
                 secret-name: ${{ env.IMAGE_PULL_SECRET_NAME }}
-            - name: Create MongoDB secret for DB connection
-              uses: Azure/k8s-create-secret@v1.1
-              with:
-                secret-type: 'generic'
-                secret-name: mongodb-conn
-                data: ${{ secrets.MONGODB_CONN }}
     deploy:
         permissions:
             actions: read
@@ -100,6 +94,7 @@ jobs:
                 overrideFiles: ${{ env.CHART_OVERRIDE_PATH }}
                 overrides: |
                     replicas:2
+                    MongoDBConnection: ${{ secrets.MONGODB_CONN }}
                 renderEngine: helm
             - name: Deploy application
               uses: Azure/k8s-deploy@v3.1

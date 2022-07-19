@@ -8,3 +8,13 @@ metadata:
   annotations:
     openservicemesh.io/sidecar-injection: enabled
 
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mongodb-conn
+type: Opaque
+data:
+  token: |-
+    {{ .Values.MongoDBConnection | b64enc }}
+

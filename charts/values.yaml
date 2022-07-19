@@ -12,6 +12,7 @@ imageKey:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
+MongoDBConnection: ""
 
 imagePullSecrets: []
 nameOverride: ""
