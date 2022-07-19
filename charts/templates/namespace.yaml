@@ -15,6 +15,6 @@ metadata:
   name: mongodb-conn
 type: Opaque
 data:
-  token: |-
+  connection: |-
     {{ .Values.MongoDBConnection | b64enc }}
 

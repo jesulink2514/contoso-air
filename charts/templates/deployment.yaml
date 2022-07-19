@@ -41,7 +41,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: mongodb-conn
-                  key: data
+                  key: connection
           livenessProbe:
             httpGet:
               path: /
