@@ -28,17 +28,3 @@ spec:
       documentEndpoint:
         name: db-secret
         key: endpoint
----
-apiVersion: documentdb.azure.com/v1beta20210515
-kind: MongodbDatabase
-metadata:
-  name: contoso-db-mongodb
-spec:
-  location: eastus
-  owner:
-    name: contosoairdbaccount
-  options:
-    autoscaleSettings:
-      maxThroughput: 1000
-  resource:
-    id: contoso-db-mongodb

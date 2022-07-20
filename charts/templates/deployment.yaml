@@ -41,13 +41,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: db-secret
-                  key: primarymasterkey
-
-            - name: COSMOS_DB_URL
-              value: https://contosoairdbaccount.mongo.cosmos.azure.com:10255
-
-            - name: COSMOS_DB_DATABASE
-              value: contoso-db-mongodb
+                  key: primarymasterkey            
             
             - name: COSMOS_DB_NAME
               value: contosoairdbaccount
