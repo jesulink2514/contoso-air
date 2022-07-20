@@ -44,10 +44,7 @@ spec:
                   key: primarymasterkey
 
             - name: COSMOS_DB_URL
-              valueFrom:
-                secretKeyRef:
-                  name: db-secret
-                  key: endpoint
+              value: contosoairdbaccount.mongo.cosmos.azure.com
 
             - name: COSMOS_DB_DATABASE
               value: contoso-db-mongodb
