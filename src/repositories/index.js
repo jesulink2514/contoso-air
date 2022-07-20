@@ -15,9 +15,8 @@ const BookRepository = () => {
         const cosmosdb_name = process.env.COSMOS_DB_NAME;
         const cosmosdb_key = process.env.COSMOS_DB_AUTH_KEY;
         const cosmosdb_url = process.env.COSMOS_DB_URL;
-        const database_name = process.env.COSMOS_DB_DATABASE;
-        const local_connection = process.env.MONGO_LOCAL_CONN;
-        bookRepository = new _BookRepository({ cosmosdb_name, cosmosdb_key, cosmosdb_url, database_name, local_connection });
+        const database_name = process.env.COSMOS_DB_DATABASE;        
+        bookRepository = new _BookRepository({ cosmosdb_name, cosmosdb_key, cosmosdb_url, database_name });
     }
 
     return bookRepository;
