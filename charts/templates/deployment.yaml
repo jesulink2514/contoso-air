@@ -44,7 +44,7 @@ spec:
                   key: primarymasterkey
 
             - name: COSMOS_DB_URL
-              value: contosoairdbaccount.mongo.cosmos.azure.com
+              value: contosoairdbaccount.mongo.cosmos.azure.com:10255
 
             - name: COSMOS_DB_DATABASE
               value: contoso-db-mongodb
