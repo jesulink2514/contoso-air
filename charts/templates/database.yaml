@@ -1,0 +1,44 @@
+apiVersion: resources.azure.com/v1alpha1api20200601
+kind: ResourceGroup
+metadata:
+  name: contosoair  
+spec:
+  location: eastus
+---
+apiVersion: documentdb.azure.com/v1alpha1api20210515
+kind: DatabaseAccount
+metadata:
+  name: contosoairdbaccount  
+spec:
+  location: eastus
+  owner:
+    name: contosoair
+  kind: MongoDB
+  databaseAccountOfferType: Standard
+  locations:
+    - locationName: eastus
+  operatorSpec:
+    secrets:
+      primaryMasterKey:
+        name: db-secret
+        key: primarymasterkey
+      secondaryMasterKey:
+        name: db-secret
+        key: secondarymasterkey
+      documentEndpoint:
+        name: db-secret
+        key: endpoint
+---
+apiVersion: documentdb.azure.com/v1beta20210515
+kind: MongodbDatabase
+metadata:
+  name: contoso-db-mongodb
+spec:
+  location: eastus
+  owner:
+    name: contosoairdbaccount
+  options:
+    autoscaleSettings:
+      maxThroughput: 1000
+  resource:
+    id: contoso-db-mongodb

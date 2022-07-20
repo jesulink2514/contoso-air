@@ -37,11 +37,23 @@ spec:
               containerPort: {{ .Values.containerPort }}
               protocol: TCP
           env:
-            - name: MONGO_LOCAL_CONN
+            - name: COSMOS_DB_AUTH_KEY
               valueFrom:
                 secretKeyRef:
-                  name: mongodb-conn
-                  key: connection
+                  name: db-secret
+                  key: primarymasterkey
+
+            - name: COSMOS_DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: endpoint
+
+            - name: COSMOS_DB_DATABASE
+              value: contoso-db-mongodb
+            
+            - name: COSMOS_DB_NAME
+              value: contosoairdbaccount
           livenessProbe:
             httpGet:
               path: /
